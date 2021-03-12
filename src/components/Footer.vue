@@ -1,0 +1,54 @@
+<template>
+	<footer class="ftco-footer ftco-bg-dark ftco-section">
+        <div class="container px-md-5">
+            <div class="row mb-5">
+                <div class="col-md">
+                    <div class="ftco-footer-widget mb-4 ml-md-4">
+                        <h2 class="ftco-heading-2">Categories</h2>
+                        <ul class="list-unstyled categories">
+                            <li v-for="(item, index) in categories" :key="index"><a href="#">{{item.name}} <span>({{item.count}})</span></a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-md">
+                    <div class="ftco-footer-widget mb-4">
+                        <h2 class="ftco-heading-2">Archives</h2>
+                        <ul class="list-unstyled categories">
+                            <li v-for="(item, index) in archives" :key="index"><a href="#">{{item.month}} <span>({{item.count}})</span></a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-md">
+                    <div class="ftco-footer-widget mb-4">
+                        <h2 class="ftco-heading-2">Have a Questions ?</h2>
+                        <div class="block-23 mb-3">
+                            <ul>
+                                <li><span class="icon icon-map-marker"></span><span class="text">{{contact.address}}</span></li>
+                                <li><a href="#"><span class="icon icon-phone"></span><span class="text">{{contact.tel}}</span></a></li>
+                                <li><a href="#"><span class="icon icon-envelope"></span><span class="text">{{contact.email}}</span></a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+</template>
+
+<script>
+import { mapState } from 'vuex';
+export default {
+  name: 'Footer',
+  data () {
+      return {
+      }
+  },
+  computed: mapState({
+    categories: state => state.static_data.categories,
+    archives: state => state.static_data.archives,
+    contact: state => state.static_data.contact,
+  }),
+  methods: {
+  }
+};
+</script>
